@@ -11,15 +11,60 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.CBMPE_TELAS_TESTE">
+
+        <!-- A MainActivity (tela de seleção) ainda está declarada, mas não é mais a principal -->
         <activity
             android:name=".MainActivity"
-            android:exported="true">
+            android:exported="false" /> <!-- Mudado para false pois não é mais o launcher -->
+
+        <!-- ESTA É A MUDANÇA PRINCIPAL -->
+        <!-- 1. Declaramos a nova Activity -->
+        <activity
+            android:name=".FormPrevencaoActivity"
+            android:exported="true"> <!-- 'exported' precisa ser 'true' para o launcher -->
+
+            <!-- 2. Movemos o intent-filter para cá -->
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <!-- Você também precisará declarar a outra activity de formulário
+             quando for usá-la -->
+        <!--
+        <activity
+            android:name=".FormComunitariaActivity"
+            android:exported="false" />
+        -->
+
     </application>
 
 </manifest>
+
+
+    <!--<?xml version="1.0" encoding="utf-8"?>-->
+    <!--<manifest xmlns:android="http://schemas.android.com/apk/res/android"-->
+    <!--    xmlns:tools="http://schemas.android.com/tools">-->
+
+    <!--    <application-->
+    <!--        android:allowBackup="true"-->
+    <!--        android:dataExtractionRules="@xml/data_extraction_rules"-->
+    <!--        android:fullBackupContent="@xml/backup_rules"-->
+    <!--        android:icon="@mipmap/ic_launcher"-->
+    <!--        android:label="@string/app_name"-->
+    <!--        android:roundIcon="@mipmap/ic_launcher_round"-->
+    <!--        android:supportsRtl="true"-->
+    <!--        android:theme="@style/Theme.CBMPE_TELAS_TESTE">-->
+    <!--        <activity-->
+    <!--            android:name=".MainActivity"-->
+    <!--            android:exported="true">-->
+    <!--            <intent-filter>-->
+    <!--                <action android:name="android.intent.action.MAIN" />-->
+
+    <!--                <category android:name="android.intent.category.LAUNCHER" />-->
+    <!--            </intent-filter>-->
+    <!--        </activity>-->
+    <!--    </application>-->
+
+    <!--</manifest>-->
